@@ -132,7 +132,7 @@ static inline netif_init_fn tcpip_if_to_netif_init_fn(tcpip_adapter_if_t tcpip_i
 	  return NULL;
 }
 
-static int tcpip_adapter_ipc_check(tcpip_adapter_api_msg_t *msg)
+int tcpip_adapter_ipc_check(tcpip_adapter_api_msg_t *msg)
 {
 #if TCPIP_ADAPTER_TRHEAD_SAFE
     xTaskHandle local_task = xTaskGetCurrentTaskHandle();
