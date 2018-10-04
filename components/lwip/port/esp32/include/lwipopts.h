@@ -46,6 +46,19 @@
 
 #include "netif/dhcp_state.h"
 
+/* Particle */
+struct netif;
+struct pbuf;
+#ifdef __cplusplus
+extern "C" {
+#endif /* __cplusplus */
+int particle_ethernet_input_hook(struct netif* inp, struct pbuf* p);
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
+#define LWIP_HOOK_ETHERNET_INPUT(inp, p) particle_ethernet_input_hook(inp, p)
+/* /Particle */
+
 /* Enable all Espressif-only options */
 
 /*
