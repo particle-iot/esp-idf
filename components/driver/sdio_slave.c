@@ -701,7 +701,7 @@ sdio_slave_hostint_t sdio_slave_get_host_intena()
     return HOST.slc0_func1_int_ena.val;
 }
 
-void sdio_slave_set_host_intena(sdio_slave_hostint_t ena)
+void sdio_slave_set_host_intena(uint32_t ena)
 {
     HOST.slc0_func1_int_ena.val = ena;
 }

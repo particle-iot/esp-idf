@@ -269,7 +269,7 @@ sdio_slave_hostint_t sdio_slave_get_host_intena();
  *
  * @param ena Enable mask for host interrupt.
  */
-void sdio_slave_set_host_intena(sdio_slave_hostint_t ena);
+void sdio_slave_set_host_intena(uint32_t ena);
 
 /** Interrupt the host by general purpose interrupt.
  *
