@@ -281,7 +281,13 @@ esp_err_t system_event_sta_connected_handle_default(system_event_t *event)
             esp_event_send(&evt);
             ESP_LOGD(TAG, "static ip: ip changed=%d", evt.event_info.got_ip.ip_changed);
         } else {
+            // Particle
+            // FIXME: Newer versions of esp-at don't seem to work unless SYSTEM_EVENT_STA_GOT_IP is generated
             ESP_LOGE(TAG, "invalid static ip");
+            system_event_t evt;
+            evt.event_id = SYSTEM_EVENT_STA_GOT_IP;
+            evt.event_info.got_ip.ip_changed = false;
+            esp_event_send(&evt);
         }
     }
 
